@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/awagner/.vim/plugin'
+let g:netrw_dirhist_2='/home/awagner/latex/faces_pami_paper_v4'
+let g:netrw_dirhist_3='/home/awagner/latex'
+let g:netrw_dirhist_4='/home/awagner/latex/faces_pami_paper_v4'
+let g:netrw_dirhist_5='/usr/local/intel/mkl/include/64'
+let g:netrw_dirhist_6='/usr/local/intel/mkl/include/64/ilp64'

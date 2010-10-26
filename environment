@@ -1,0 +1,44 @@
+#!/bin/bash
+
+# Modifications to the environment that are machine specific (and probably Drew specific as well).
+# For use on whatever machine is currently Drew's primary workstation.
+
+PATH=${PATH}:/usr/local/cuda/bin
+PATH=${PATH}:/usr/local/bin
+PATH=${PATH}:~/cvpr2011/bin
+PATH=${PATH}:/usr/local/cuda/computeprof/bin
+PATH=~/bin:${PATH}
+PATH=./:${PATH}
+export PATH
+
+export INTEL_LICENSE_FILE=~/down/intel/licenses
+source /usr/local/intel/bin/iccvars.sh intel64
+export MKL_ROOT=/usr/local/intel/mkl/
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MKL_ROOT}/lib/em64t
+export COMPILER=icc
+
+export MATLAB=/usr/local/bin/MATLAB_R2009a/
+#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MATLAB}/bin/glnxa64
+#export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MATLAB}/sys/os/glnxa64
+#export AWT_TOOLKIT=MToolkit
+#export MATLAB_JAVA=/usr/bin/java
+
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/lib
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/computeprof/bin
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+export CUDA_ROOT=/usr/local/cuda
+export PYTHONPATH=${PYTHONPATH}:~/optimization
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
+export CUDA_ROOT=/usr/local/cuda
+export PYTHONPATH=${PYTHONPATH}:~/optimization
+
+export BIT_MODE=64
+
+#export BLAS_IMPLEMENTATION=ACML
+#export ACML_BLAS_INCLUDE_DIR=/usr/local/amd/acml4.4.0/ifort64_mp/include/ 
+#export BLAS_IMPLEMENTATION=MATLAB
+#export MATLAB_BLAS_INCLUDE_DIR=${MATLAB}/extern/include
+export BLAS_IMPLEMENTATION=MKL
+export MKL_BLAS_INCLUDE_DIR=${MKL_ROOT}/include
+

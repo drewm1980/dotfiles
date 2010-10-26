@@ -1,0 +1,9 @@
+vRNG rng_state = cvRNG(0xffffffff);
+int m = 10;
+int n = 20;
+CvMat* mat = cvCreateMat(pointCount, 1, CV_32FC1);
+cvRandArr(&rng_state, mat, CV_RAND_UNI, cvRealScalar(0), cvRealScalar(1));
+cvRandArr(&rng_state, mat, CV_RAND_NORMAL, cvRealScalar(0), cvRealScalar(1));
+cvReleaseMat(&mat);
+cvReleaseMat(&mat);
+

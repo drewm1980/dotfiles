@@ -1,0 +1,17 @@
+Kinesis Countour + Colemak + VIM Notes
+
+These notes are for anyone, who, like me, learn new software tools as a means of procrastination.  Obviously, for this purpose, the sharper the learning curve for the tool, the better.  Contoured keyboards, colemak, and vim
+
+I will refer to the "Kinesis Advantage Contoured MPC/USB Whatever" simply as "The Kinesis"; they don't make any other products of interest anyway.
+
+If you are reading this, you have probably already hardware re-mapped your Caps Lock key to be your primary control key.  If not, go do it now.  Ignore Colemak's suggestion to use the Caps Lock key as a delete key; that is for keyboards with crap delete keys.
+
+Hardware remap the kinesis arrow keys to an order that you like (and swap the key caps while you're at it).  I kept Left and Right paired on my left hand, and Down, and Up paired on my right hand.
+
+The Escape key on the kinesis sucks; use vim's standard alternative <Control-[> instead to get out of Insert mode. 
+
+Ignore the "home-row" vim arrow keys; you could learn them, but they are no longer in sensical places, and they will only work in vim.  Instead, use the easily reachable arrow keys you paid for.
+
+Ignore vim's "0" (chorded) "$" for bol and eol moves.  Instead, just use the kinesis' easily reachable Home and End keys.
+
+

@@ -1,0 +1,20 @@
+[user]
+        name = Drew Wagner
+        email = drewm1980@gmail.com
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+[alias]
+	st = status
+	stat = status
+	ci = commit
+	co = checkout
+	ad = add
+	a = add
+
+[branch "master"]
+    remote = origin
+    merge = master
+[mergetool]
+	keepBackup = false

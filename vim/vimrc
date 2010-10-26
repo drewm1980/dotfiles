@@ -1,0 +1,102 @@
+set nocompatible    " use vim defaults
+
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+set ls=2            " allways show status line
+set showcmd         " display incomplete commands
+set number          " show line numbers
+set noignorecase   " don't ignore case
+set title           " show title in console title bar
+set ttyfast         " smoother changes
+set nostartofline   " don't jump to first character when paging
+set hidden
+set scrolloff=5     " keep 3 lines when scrolling
+
+"set tabstop=4       " numbers of spaces of tab character
+"set shiftwidth=4    " numbers of spaces to (auto)indent
+"set nohlsearch        " highlight searches
+"set incsearch       " do incremental searching
+"set ruler           " show the cursor position all the time
+"set visualbell t_vb=    " turn off error beep/flash
+"set novisualbell    " turn off visual bell
+"set nobackup        " do not keep a backup file
+"set ignorecase      " ignore case when searching
+"set ttyscroll=0        " turn off scrolling, didn't work well with PuTTY
+"set shortmess=atI   " Abbreviate messages
+"set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
+"set viminfo='20,<50,s10,h
+
+set noautoindent
+set nosmartindent
+set nocindent  
+
+"set autowrite      " auto saves changes when quitting and swiching buffer
+"set expandtab      " tabs are converted to spaces, use only when required
+set nosm             " show matching braces, somewhat annoying...
+"set nowrap         " don't wrap lines
+
+syntax on           " syntax highlighing
+
+
+if has("autocmd")
+    " Restore cursor position
+    "au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+
+    " Filetypes (au = autocmd)
+    au FileType helpfile set nonumber      " no line numbers when viewing help
+    au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
+    au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
+    
+    " When using mutt, text width=72
+    "au FileType mail,tex set textwidth=72
+    au FileType cpp,c,cu set autoindent
+    au FileType cpp,c,cu set smartindent
+    au FileType cpp,c,cu set cindent
+
+    " Automatically chmod +x Shell and Perl scripts
+    au BufWritePost   *.sh             !chmod +x %
+    au BufWritePost   *.py             !chmod +x %
+
+    " File formats
+    " au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
+    au BufNewFile,BufRead *.cu set ft=cu
+    au BufNewFile,BufRead *.cuda set ft=cu
+endif
+
+let loaded_matchparen = 1 " Turn off distracting temporary highlighting of matching parantheses.
+
+set cursorline cursorcolumn
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+au InsertEnter * set nocursorline nocursorcolumn
+au InsertLeave * set cursorline cursorcolumn
+
+
+if has("gui_running")
+	"set t_Co=256
+	colorscheme zenburn
+	set guioptions-=m " Turn off menubar
+	set guioptions-=T " Turn off toolbar
+	set guioptions-=r " Turn off scroll-bars
+	set guicursor+=a:blinkon0 "Turn off cursor blink
+	"set guicursor-=a:blinkon0 "Turn cursor blink back on
+	set mousefocus
+endif
+
+" Bubble single lines, requires the unimpaired plugin
+nmap <C-Up> [e
+nmap <C-Down> ]e
+" Bubble multiple lines
+vmap <C-Up> [egv
+vmap <C-Down> ]egv
+
+"inoremap <Up> <NOP>
+"inoremap <Down> <NOP>
+"inoremap <Left> <NOP>
+"inoremap <Right> <NOP>
+"noremap <Up> <NOP>
+"noremap <Down> <NOP>
+"noremap <Left> <NOP>
+"noremap <Right> <NOP>
