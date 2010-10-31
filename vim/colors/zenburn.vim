@@ -90,7 +90,7 @@
 "   that way, but some people may want to align it with the darker CursorLine
 "   color, for visual uniformity. To do so, use:
 "
-"      let g:zenburn_unified_CursorColumn = 1
+      let g:zenburn_unified_CursorColumn = 1
 "
 "   Note: you can ignore this unless you use
 "   ":set cursorline cursorcolumn", since otherwise the effect won't be
@@ -371,10 +371,10 @@ else
     " Original, lighter background
     hi Normal          guifg=#dcdccc guibg=#3f3f3f
     hi CursorLine      guibg=#434443
+    hi CursorColumn    guibg=#4f4f4f
     if exists("g:zenburn_unified_CursorColumn") && g:zenburn_unified_CursorColumn
-        hi CursorColumn    guibg=#434343
-    else
-        hi CursorColumn    guibg=#4f4f4f
+        hi CursorLine      guibg=#474947
+        hi CursorColumn    guibg=#4c4d4c
     endif
     hi Pmenu           guibg=#2c2e2e guifg=#9f9f9f
     hi PMenuSel        guibg=#242424 guifg=#d0d0a0 gui=bold
