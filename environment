@@ -34,6 +34,7 @@ export CUDA_ROOT=/usr/local/cuda
 export PYTHONPATH=${PYTHONPATH}:~/optimization
 
 export BIT_MODE=64
+export KMP_AFFINITY=granularity=fine,compact,1,0
 
 #export BLAS_IMPLEMENTATION=ACML
 #export ACML_BLAS_INCLUDE_DIR=/usr/local/amd/acml4.4.0/ifort64_mp/include/ 
