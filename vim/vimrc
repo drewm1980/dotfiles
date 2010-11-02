@@ -14,8 +14,13 @@ set nostartofline   " don't jump to first character when paging
 set hidden
 set scrolloff=5     " keep 3 lines when scrolling
 
-"set tabstop=4       " numbers of spaces of tab character
-"set shiftwidth=4    " numbers of spaces to (auto)indent
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+set tabstop=4       " numbers of spaces of tab character
+set shiftwidth=4    " numbers of spaces to (auto)indent
 "set nohlsearch        " highlight searches
 "set incsearch       " do incremental searching
 "set ruler           " show the cursor position all the time
