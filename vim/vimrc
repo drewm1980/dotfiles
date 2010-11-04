@@ -61,8 +61,8 @@ if has("autocmd")
     au FileType cpp,c,cu set cindent
 
     " Automatically chmod +x Shell and Perl scripts
-    au BufWritePost   *.sh             !chmod +x %
-    au BufWritePost   *.py             !chmod +x %
+    "au BufWritePost   *.sh             !chmod +x %
+    "au BufWritePost   *.py             !chmod +x %
 
     " File formats
     " au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
@@ -77,7 +77,6 @@ au WinLeave * set nocursorline nocursorcolumn
 au WinEnter * set cursorline cursorcolumn
 au InsertEnter * set nocursorline nocursorcolumn
 au InsertLeave * set cursorline cursorcolumn
-
 
 if has("gui_running")
 	"set t_Co=256

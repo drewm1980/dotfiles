@@ -28,10 +28,8 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/lib64
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/cuda/computeprof/bin
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 export CUDA_ROOT=/usr/local/cuda
-export PYTHONPATH=${PYTHONPATH}:~/optimization
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 export CUDA_ROOT=/usr/local/cuda
-export PYTHONPATH=${PYTHONPATH}:~/optimization
 
 export BIT_MODE=64
 export KMP_AFFINITY=granularity=fine,compact,1,0
