@@ -18,6 +18,7 @@ alias clmatlab="matlab -nodesktop -nojvm -nosplash"
 alias g="gvim --remote-silent"
 alias open=xdg-open
 alias ipython='ipython --colors LightBG'
+alias sl='ls'
 
 # These are some fancy command prompts that Drew is experimenting with to make work a little easier.
 # This one I got from Dan Manjarres
@@ -44,5 +45,5 @@ alias ipython='ipython --colors LightBG'
 SEPERATOR='█▀▀ ▄█▀ ▄█▄ ██ ▄▄▄▄ ▀█▄ ▀▀█'
 #SEPERATOR='█▄▄ ▄█▀ ▄█▄ ██ ▄▄▄▄ ▀█▄ ▄▄█'
 case $TERM in
-	*) PS1='\n$SEPERATOR\n\u@\h:$PWD$ '
+	*) PS1='$SEPERATOR\n\u@\h:$PWD$ '
 esac
