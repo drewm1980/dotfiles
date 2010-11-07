@@ -8,6 +8,7 @@ export PATH
 export OSTYPE
 export BROWSER=iceweasel
 export EDITOR=vim
+export GIT_EDITOR=vim
 export PAGER=less
 
 setterm -blength 0
@@ -20,7 +21,6 @@ alias open=xdg-open
 alias ipython='ipython --colors LightBG'
 alias ll='ls -alh'
 alias sl='ls'
-
 
 # These are some fancy command prompts that Drew is experimenting with to make work a little easier.
 # This one I got from Dan Manjarres
