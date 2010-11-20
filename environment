@@ -7,9 +7,15 @@ PATH=${PATH}:/usr/local/cuda/bin
 PATH=${PATH}:/usr/local/bin
 PATH=${PATH}:~/cvpr2011/bin
 PATH=${PATH}:/usr/local/cuda/computeprof/bin
+PATH=${PATH}:~/src/go/bin
 PATH=~/bin:${PATH}
 PATH=./:${PATH}
 export PATH
+
+export GOROOT=/home/awagner/src/go
+export GOBIN=$GOROOT/bin
+export GOOS=linux
+export GOARCH=amd64
 
 export INTEL_LICENSE_FILE=~/down/intel/licenses
 source /usr/local/intel/bin/iccvars.sh intel64
