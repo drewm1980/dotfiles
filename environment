@@ -21,7 +21,8 @@ export INTEL_LICENSE_FILE=~/down/intel/licenses
 source /usr/local/intel/bin/iccvars.sh intel64
 export MKL_ROOT=/usr/local/intel/mkl/
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MKL_ROOT}/lib/em64t
-export COMPILER=icc
+#export COMPILER=icc
+export COMPILER=g++
 
 export MATLAB=/usr/local/bin/MATLAB_R2009a/
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MATLAB}/bin/glnxa64
