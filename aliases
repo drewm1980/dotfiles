@@ -23,7 +23,7 @@ alias ipython='ipython --colors LightBG'
 alias ll='ls -alh'
 alias sl='ls'
 #alias cscope="cscope *.cpp *.h *.cu /usr/local/include/opencv/*.h"
-alias par='parallel -j+0'
+alias par='parallel -j+0 --eta'
 
 # These are some fancy command prompts that Drew is experimenting with to make work a little easier.
 # This one I got from Dan Manjarres
