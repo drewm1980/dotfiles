@@ -20,6 +20,7 @@ alias g="gvim --remote-silent"
 alias open=xdg-open
 alias ipython='ipython --colors LightBG'
 alias sl='ls'
+alias updatedb="sudo updatedb"
 #alias cscope="cscope *.cpp *.h *.cu /usr/local/include/opencv/*.h"
 
 # These are some fancy command prompts that Drew is experimenting with to make work a little easier.
