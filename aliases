@@ -1,6 +1,6 @@
 #/bin/bash
 
-# Modifications to the environment that are Drew specific, and not machine specific.
+# Modifications to the environment that are Drew specific, and NOT machine specific.
 # Should be usable on every machine drew uses.
 
 PATH=./:${PATH}
@@ -9,6 +9,7 @@ export OSTYPE
 export BROWSER=iceweasel
 export EDITOR=vim
 export GIT_EDITOR=vim
+export VIEWER=view
 export PAGER=less
 
 setterm -blength 0
@@ -21,6 +22,8 @@ alias open=xdg-open
 alias ipython='ipython --colors LightBG'
 alias ll='ls -alh'
 alias sl='ls'
+#alias cscope="cscope *.cpp *.h *.cu /usr/local/include/opencv/*.h"
+alias par='parallel -j+0'
 
 # These are some fancy command prompts that Drew is experimenting with to make work a little easier.
 # This one I got from Dan Manjarres

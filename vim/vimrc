@@ -13,6 +13,7 @@ set ttyfast         " smoother changes
 set nostartofline   " don't jump to first character when paging
 set hidden
 set scrolloff=5     " keep 3 lines when scrolling
+set diffopt=filler,vertical,iwhite
 
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
@@ -54,20 +55,16 @@ if has("autocmd")
     au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
     au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
     
-    " When using mutt, text width=72
-    "au FileType mail,tex set textwidth=72
-    au FileType cpp,c,cu set autoindent
-    au FileType cpp,c,cu set smartindent
-    au FileType cpp,c,cu set cindent
+    au FileType cpp,c,cu,asy set autoindent
+    au FileType cpp,c,cu,asy set smartindent
+    au FileType cpp,c,cu,asy set cindent
 
-    " Automatically chmod +x Shell and Perl scripts
-    "au BufWritePost   *.sh             !chmod +x %
-    "au BufWritePost   *.py             !chmod +x %
+	au BufNewFile,BufRead *.asy set ft=asy
 
     " File formats
     " au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
     au BufNewFile,BufRead *.cu set ft=cu
-    au BufNewFile,BufRead *.cuda set ft=cu
+    au BufNewFile,BufRead *.cumako set ft=cu
 endif
 
 let loaded_matchparen = 1 " Turn off distracting temporary highlighting of matching parantheses.
@@ -95,11 +92,5 @@ nmap <C-Down> ]e
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
 
-"inoremap <Up> <NOP>
-"inoremap <Down> <NOP>
-"inoremap <Left> <NOP>
-"inoremap <Right> <NOP>
-"noremap <Up> <NOP>
-"noremap <Down> <NOP>
-"noremap <Left> <NOP>
-"noremap <Right> <NOP>
+map <PageUp> <C-Y>
+map <PageDown> <C-E>
