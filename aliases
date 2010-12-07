@@ -8,6 +8,7 @@ export PATH
 export OSTYPE
 export BROWSER=iceweasel
 export EDITOR=vim
+export GIT_EDITOR=vim
 export VIEWER=view
 export PAGER=less
 
@@ -19,9 +20,11 @@ alias clmatlab="matlab -nodesktop -nojvm -nosplash"
 alias g="gvim --remote-silent"
 alias open=xdg-open
 alias ipython='ipython --colors LightBG'
+alias ll='ls -alh'
 alias sl='ls'
 alias updatedb="sudo updatedb"
 #alias cscope="cscope *.cpp *.h *.cu /usr/local/include/opencv/*.h"
+alias par='parallel -j+0 --eta'
 
 # These are some fancy command prompts that Drew is experimenting with to make work a little easier.
 # This one I got from Dan Manjarres

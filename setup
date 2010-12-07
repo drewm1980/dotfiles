@@ -1,0 +1,10 @@
+#!/bin/bash
+echo ". dotfiles/aliases" >> ~/.bashrc
+rm ../.gitconfig
+ln -s dotfiles/gitconfig ../.gitconfig
+rm ../.vimrc
+ln -s dotfiles/vim/vimrc ../.vimrc
+rm ~/.vim
+ln -s dotfiles/vim ~/.vim
+rm -rf ~/.config/awesome
+ln -s ~/dotfiles/awesome ~/.config/awesome
