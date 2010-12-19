@@ -94,3 +94,5 @@ vmap <C-Down> ]egv
 
 map <PageUp> <C-Y>
 map <PageDown> <C-E>
+
+nmap <F5> :wall <cr> :make <cr>
