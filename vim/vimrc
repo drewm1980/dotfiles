@@ -80,9 +80,8 @@ if has("gui_running")
 	colorscheme zenburn
 	set guioptions-=m " Turn off menubar
 	set guioptions-=T " Turn off toolbar
-	set guioptions-=r " Turn off scroll-bars
+	"set guioptions-=r " Turn off scroll-bars
 	set guicursor+=a:blinkon0 "Turn off cursor blink
-	"set guicursor-=a:blinkon0 "Turn cursor blink back on
 	set mousefocus
 endif
 
@@ -97,3 +96,4 @@ map <PageUp> <C-Y>
 map <PageDown> <C-E>
 
 abbr hte the
+nmap <F5> :wall <cr> :make <cr>
