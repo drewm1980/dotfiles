@@ -95,3 +95,5 @@ vmap <C-Down> ]egv
 
 map <PageUp> <C-Y>
 map <PageDown> <C-E>
+
+abbr hte the
