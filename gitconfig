@@ -7,11 +7,10 @@
         branch = auto
 [alias]
 	st = status
+	sta = status
 	stat = status
 	ci = commit
 	co = checkout
-	ad = add
-	a = add
 
 [branch "master"]
     remote = origin
