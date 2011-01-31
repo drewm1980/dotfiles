@@ -22,6 +22,7 @@ nmap <leader>l :set list!<CR>
 
 set tabstop=4       " numbers of spaces of tab character
 set shiftwidth=4    " numbers of spaces to (auto)indent
+set autochdir
 "set nohlsearch        " highlight searches
 "set incsearch       " do incremental searching
 "set ruler           " show the cursor position all the time
