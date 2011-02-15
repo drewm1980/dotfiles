@@ -23,22 +23,16 @@ nmap <leader>l :set list!<CR>
 
 set tabstop=4       " numbers of spaces of tab character
 set shiftwidth=4    " numbers of spaces to (auto)indent
+
 "set nohlsearch        " highlight searches
 "set incsearch       " do incremental searching
-"set ruler           " show the cursor position all the time
-"set visualbell t_vb=    " turn off error beep/flash
-"set novisualbell    " turn off visual bell
-"set nobackup        " do not keep a backup file
 "set ignorecase      " ignore case when searching
-"set ttyscroll=0        " turn off scrolling, didn't work well with PuTTY
-"set shortmess=atI   " Abbreviate messages
-"set whichwrap=b,s,h,l,<,>,[,]   " move freely between files
-"set viminfo='20,<50,s10,h
 
 set noautoindent
 set nosmartindent
 set nocindent  
 
+"set nobackup        " do not keep a backup file
 "set autowrite      " auto saves changes when quitting and swiching buffer
 "set expandtab      " tabs are converted to spaces, use only when required
 set nosm             " show matching braces, somewhat annoying...
@@ -46,6 +40,7 @@ set nosm             " show matching braces, somewhat annoying...
 
 syntax on           " syntax highlighing
 
+set autochdir
 
 if has("autocmd")
     " Restore cursor position
@@ -64,8 +59,9 @@ if has("autocmd")
 
     " File formats
     " au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
-    au BufNewFile,BufRead *.cu set ft=cu
-    au BufNewFile,BufRead *.cumako set ft=cu
+    au BufNewFile,BufRead *.cu set ft=cpp
+    "au BufNewFile,BufRead *.cu set ft=cu
+    "au BufNewFile,BufRead *.cumako set ft=cu
 endif
 
 let loaded_matchparen = 1 " Turn off distracting temporary highlighting of matching parantheses.
@@ -76,14 +72,19 @@ au WinEnter * set cursorline cursorcolumn
 au InsertEnter * set nocursorline nocursorcolumn
 au InsertLeave * set cursorline cursorcolumn
 
+colorscheme zenburn
 if has("gui_running")
 	"set t_Co=256
-	colorscheme zenburn
 	set guioptions-=m " Turn off menubar
 	set guioptions-=T " Turn off toolbar
 	"set guioptions-=r " Turn off scroll-bars
 	set guicursor+=a:blinkon0 "Turn off cursor blink
 	set mousefocus
+	"set guifont=Monospace\ 10 "almost identical to...
+	set guifont=DejaVu\ Sans\ Mono\ 10
+	"set guifont=Liberation\ Mono\ 11
+	"set guifont=monofur\ 13 " Weird
+	"set guifont=Inconsolata\ Medium\ 10 " looks bad with antialiasing.
 endif
 
 " Bubble single lines, requires the unimpaired plugin
