@@ -22,6 +22,8 @@ set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 
 set tabstop=4       " numbers of spaces of tab character
+"set expandtab      " tabs are converted to spaces, use only when required
+
 "set nohlsearch        " highlight searches
 "set incsearch       " do incremental searching
 "set ignorecase      " ignore case when searching
@@ -32,7 +34,6 @@ set nocindent
 
 "set nobackup        " do not keep a backup file
 "set autowrite      " auto saves changes when quitting and swiching buffer
-"set expandtab      " tabs are converted to spaces, use only when required
 set nosm             " show matching braces, somewhat annoying...
 "set nowrap         " don't wrap lines
 
@@ -40,27 +41,18 @@ syntax on           " syntax highlighing
 
 set autochdir
 
-if has("autocmd")
-    " Restore cursor position
-    "au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
+au FileType helpfile set nonumber      " no line numbers when viewing help
+au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
+au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
 
-    " Filetypes (au = autocmd)
-    au FileType helpfile set nonumber      " no line numbers when viewing help
-    au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
-    au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
-    
-    au FileType cpp,c,cu,asy set autoindent
-    au FileType cpp,c,cu,asy set smartindent
-    au FileType cpp,c,cu,asy set cindent
+au FileType cpp,c,cu,asy set autoindent
+au FileType cpp,c,cu,asy set smartindent
+au FileType cpp,c,cu,asy set cindent
 
-	au BufNewFile,BufRead *.asy set ft=asy
-
-    " File formats
-    " au BufNewFile,BufRead  modprobe.conf    set syntax=modconf
-    au BufNewFile,BufRead *.cu set ft=cpp
-    "au BufNewFile,BufRead *.cu set ft=cu
-    "au BufNewFile,BufRead *.cumako set ft=cu
-endif
+au BufNewFile,BufRead *.asy set ft=asy
+au BufNewFile,BufRead *.cu set ft=cpp
+"au BufNewFile,BufRead *.cu set ft=cu
+"au BufNewFile,BufRead *.cumako set ft=cu
 
 let loaded_matchparen = 1 " Turn off distracting temporary highlighting of matching parantheses.
 
@@ -70,8 +62,8 @@ au WinEnter * set cursorline cursorcolumn
 au InsertEnter * set nocursorline nocursorcolumn
 au InsertLeave * set cursorline cursorcolumn
 
-colorscheme zenburn
 if has("gui_running")
+	colorscheme zenburn
 	"set t_Co=256
 	set guioptions-=m " Turn off menubar
 	set guioptions-=T " Turn off toolbar
