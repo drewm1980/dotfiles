@@ -22,8 +22,6 @@ set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 
 set tabstop=4       " numbers of spaces of tab character
-set shiftwidth=4    " numbers of spaces to (auto)indent
-
 "set nohlsearch        " highlight searches
 "set incsearch       " do incremental searching
 "set ignorecase      " ignore case when searching
