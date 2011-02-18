@@ -39,7 +39,7 @@ set nosm             " show matching braces, somewhat annoying...
 
 syntax on           " syntax highlighing
 
-set autochdir
+"set autochdir
 
 au FileType helpfile set nonumber      " no line numbers when viewing help
 au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
@@ -71,10 +71,12 @@ if has("gui_running")
 	set guicursor+=a:blinkon0 "Turn off cursor blink
 	set mousefocus
 	"set guifont=Monospace\ 10 "almost identical to...
-	set guifont=DejaVu\ Sans\ Mono\ 10
+	"set guifont=DejaVu\ Sans\ Mono\ 10
+	set guifont=DejaVu\ Sans\ Mono\ 11
+	"set guifont=DejaVu\ Sans\ Mono\ 12
 	"set guifont=Liberation\ Mono\ 11
 	"set guifont=monofur\ 13 " Weird
-	"set guifont=Inconsolata\ Medium\ 10 " looks bad with antialiasing.
+	"set guifont=Inconsolata\ Medium\ 18 " looks bad with antialiasing.
 endif
 
 " Bubble single lines, requires the unimpaired plugin
