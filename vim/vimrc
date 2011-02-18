@@ -22,7 +22,9 @@ set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 
 set tabstop=4       " numbers of spaces of tab character
+set shiftwidth=4
 "set expandtab      " tabs are converted to spaces, use only when required
+"set softtabstop=2
 
 "set nohlsearch        " highlight searches
 "set incsearch       " do incremental searching
