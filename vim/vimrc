@@ -20,11 +20,12 @@ set diffopt=filler,vertical,iwhite
 set listchars=tab:▸\ ,eol:¬
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
+nnoremap <leader>m :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
 set tabstop=4       " numbers of spaces of tab character
 set shiftwidth=4
 "set expandtab      " tabs are converted to spaces, use only when required
-"set softtabstop=2
+set softtabstop=4
 
 "set nohlsearch        " highlight searches
 "set incsearch       " do incremental searching
@@ -73,12 +74,38 @@ if has("gui_running")
 	set guicursor+=a:blinkon0 "Turn off cursor blink
 	set mousefocus
 	"set guifont=Monospace\ 10 "almost identical to...
-	"set guifont=DejaVu\ Sans\ Mono\ 10
-	set guifont=DejaVu\ Sans\ Mono\ 11
-	"set guifont=DejaVu\ Sans\ Mono\ 12
+	set guifont=DejaVu\ Sans\ Mono\ 10
 	"set guifont=Liberation\ Mono\ 11
 	"set guifont=monofur\ 13 " Weird
-	"set guifont=Inconsolata\ Medium\ 18 " looks bad with antialiasing.
+	"set guifont=Inconsolata\ Medium\ 10 " looks bad with antialiasing.
+
+	" Stuff for changing the font size quickly
+	let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
+	let s:minfontsize = 6
+	let s:maxfontsize = 16
+	function! AdjustFontSize(amount)
+		if has("gui_gtk2") && has("gui_running")
+			let fontname = substitute(&guifont, s:pattern, '\1', '')
+			let cursize = substitute(&guifont, s:pattern, '\2', '')
+			let newsize = cursize + a:amount
+			if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+				let newfont = fontname . newsize
+				let &guifont = newfont
+			endif
+		else
+			echoerr "You need to run the GTK2 version of Vim to use this function."
+		endif
+	endfunction
+	function! LargerFont()
+		call AdjustFontSize(1)
+	endfunction
+	command! LargerFont call LargerFont()
+	function! SmallerFont()
+		call AdjustFontSize(-1)
+	endfunction
+	command! SmallerFont call SmallerFont()
+	nnoremap - :LargerFont<CR>
+	nnoremap _ :SmallerFont<CR>
 endif
 
 " Bubble single lines, requires the unimpaired plugin
@@ -93,3 +120,5 @@ map <PageDown> <C-E>
 
 abbr hte the
 nmap <F5> :wall <cr> :make <cr>
+
+
