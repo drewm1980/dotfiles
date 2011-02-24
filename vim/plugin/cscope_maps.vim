@@ -6,29 +6,29 @@
 " when it was compiled.  If it wasn't, time to recompile vim... 
 if has("cscope")
 
-    """"""""""""" Standard cscope/vim boilerplate
+	""""""""""""" Standard cscope/vim boilerplate
 
-    " use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
-    set cscopetag
+	" use both cscope and ctag for 'ctrl-]', ':ta', and 'vim -t'
+	set cscopetag
 
-    " check cscope for definition of a symbol before checking ctags: set to 1
-    " if you want the reverse search order.
-    set csto=0
+	" check cscope for definition of a symbol before checking ctags: set to 1
+	" if you want the reverse search order.
+	set csto=0
 
 	" add any cscope database in current directory
 	if filereadable("cscope.out")
-			set nocscopeverbose
-			cs add cscope.out  
-			set cscopeverbose  
+		set nocscopeverbose
+		cs add cscope.out  
+		set cscopeverbose  
 	endif
 
 	" use the quickfix window for cscope stuff
 	"set cscopequickfix=s-,c-,d-,i-,t-,e-
 
-    """"""""""""" My cscope/vim key mappings
-    "
+	""""""""""""" My cscope/vim key mappings
+	"
 	" The following maps all invoke one of the following cscope search types:
-    "
+	"
 	"   's'   symbol: find all references to the token under cursor 
 	"   'g'   global: find global definition(s) of the token under cursor 
 	"   'c'   calls:  find all calls to the function name under cursor 
@@ -37,41 +37,42 @@ if has("cscope")
 	"   'f'   file:   open the filename under cursor 
 	"   'i'   includes: find files that include the filename under cursor 
 	"   'd'   called: find functions that function under cursor calls
-    "
+	"
+
+
 	" You can use CTRL-T to go back to where you were before the search.  
+	nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
+	nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
+	nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
+	nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
+	nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
+	nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
+	nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
+	nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
 
-    nmap <C-\>s :cs find s <C-R>=expand("<cword>")<CR><CR>	
-    nmap <C-\>g :cs find g <C-R>=expand("<cword>")<CR><CR>	
-    nmap <C-\>c :cs find c <C-R>=expand("<cword>")<CR><CR>	
-    nmap <C-\>t :cs find t <C-R>=expand("<cword>")<CR><CR>	
-    nmap <C-\>e :cs find e <C-R>=expand("<cword>")<CR><CR>	
-    nmap <C-\>f :cs find f <C-R>=expand("<cfile>")<CR><CR>	
-    nmap <C-\>i :cs find i ^<C-R>=expand("<cfile>")<CR>$<CR>
-    nmap <C-\>d :cs find d <C-R>=expand("<cword>")<CR><CR>	
-
-    " split vim window horizontally, with search result displayed in
-    " the new window.
+	" split vim window horizontally, with search result displayed in
+	" the new window.
 
 	if has("gui_running")
-			nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
-			nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
-			nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
-			"nmap <C-Space>r :!cscope -b <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
+		nmap <C-Space>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-Space>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-Space>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-Space>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-Space>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
+		nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
+		nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-Space>r :!cscope -b <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
 	else
-			nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
-			nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
-			nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
-			nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
-			"nmap <C-@>r :!cscope -b <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
+		nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-@>c :scs find c <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-@>t :scs find t <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-@>e :scs find e <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
+		nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
+		nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
+		nmap <C-@>r :!cscope -b <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
 	endif
 
 endif
