@@ -22,6 +22,9 @@ set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 nnoremap <leader>m :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
+" disable the command for entering Ex mode so I don't hit it accidentally
+map Q <ESC>
+
 set tabstop=4       " numbers of spaces of tab character
 set shiftwidth=4
 "set expandtab      " tabs are converted to spaces, use only when required
@@ -114,11 +117,15 @@ nmap <C-Down> ]e
 " Bubble multiple lines
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+" Shortcuts for deleting lines above and below cursor.
+" Inspired by [<space> mappings for inserting empty lines.
+nmap [d kdd
+nmap ]d jddk
 
 map <PageUp> <C-Y>
 map <PageDown> <C-E>
 
 abbr hte the
+abbr si is
 nmap <F5> :wall <cr> :make <cr>
-
 

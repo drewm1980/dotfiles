@@ -12,19 +12,25 @@ PATH=~/bin:${PATH}
 PATH=./:${PATH}
 export PATH
 
-export GOROOT=/home/awagner/src/go
+# Start with a clean slate
+LD_LIBRARY_PATH=
+
+export GOROOT=/home/awagner/go
 export GOBIN=$GOROOT/bin
 export GOOS=linux
 export GOARCH=amd64
 
-export INTEL_LICENSE_FILE=~/down/intel/licenses
-source /usr/local/intel/bin/iccvars.sh intel64
-export MKL_ROOT=/usr/local/intel/mkl/
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MKL_ROOT}/lib/em64t
-#export COMPILER=icc
-export COMPILER=g++
+export INTEL_INSTALL_DIR=/opt/intel/composerxe-2011.3.174
+source $INTEL_INSTALL_DIR/bin/compilervars.sh intel64
+export MKL_ROOT=$INTEL_INSTALL_DIR/mkl/
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MKL_ROOT}/lib/intel64/
+export IPP_ROOT=$INTEL_INSTALL_DIR/ipp/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${IPP_ROOT}/lib/intel64/
 
-export MATLAB=/usr/local/bin/MATLAB_R2009a/
+export COMPILER=icc
+#export COMPILER=g++
+
+#export MATLAB=/usr/local/bin/MATLAB_R2009a/
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MATLAB}/bin/glnxa64
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MATLAB}/sys/os/glnxa64
 #export AWT_TOOLKIT=MToolkit
@@ -41,10 +47,12 @@ export CUDA_ROOT=/usr/local/cuda
 export BIT_MODE=64
 export KMP_AFFINITY=granularity=fine,compact,1,0
 
-#export BLAS_IMPLEMENTATION=ACML
-#export ACML_BLAS_INCLUDE_DIR=/usr/local/amd/acml4.4.0/ifort64_mp/include/ 
-#export BLAS_IMPLEMENTATION=MATLAB
-#export MATLAB_BLAS_INCLUDE_DIR=${MATLAB}/extern/include
-export BLAS_IMPLEMENTATION=MKL
+export ACML_BLAS_INCLUDE_DIR=/usr/local/amd/acml4.4.0/ifort64_mp/include/ 
+export MATLAB_BLAS_INCLUDE_DIR=${MATLAB}/extern/include
 export MKL_BLAS_INCLUDE_DIR=${MKL_ROOT}/include
+
+#export BLAS_IMPLEMENTATION=ACML
+#export BLAS_IMPLEMENTATION=MATLAB
+export BLAS_IMPLEMENTATION=MKL
+
 
