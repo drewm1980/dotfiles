@@ -20,12 +20,14 @@ export GOBIN=$GOROOT/bin
 export GOOS=linux
 export GOARCH=amd64
 
-export INTEL_INSTALL_DIR=/opt/intel/composerxe-2011.3.174
-source $INTEL_INSTALL_DIR/bin/compilervars.sh intel64
-export MKL_ROOT=$INTEL_INSTALL_DIR/mkl/
+export INTEL_ROOT=/opt/intel/composerxe-2011.3.174
+source $INTEL_ROOT/bin/compilervars.sh intel64
+export MKL_ROOT=$INTEL_ROOT/mkl/
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MKL_ROOT}/lib/intel64/
-export IPP_ROOT=$INTEL_INSTALL_DIR/ipp/
+export IPP_ROOT=$INTEL_ROOT/ipp/
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${IPP_ROOT}/lib/intel64/
+export ICC_ROOT=$INTEL_ROOT/compiler/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${ICC_ROOT}/lib/intel64/
 
 export COMPILER=icc
 #export COMPILER=g++
