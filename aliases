@@ -28,8 +28,11 @@ alias updatedb="sudo updatedb"
 #alias cscope="cscope *.cpp *.h *.cu /usr/local/include/opencv/*.h"
 alias par='parallel -j+0 --eta'
 
+alias make=makepp
+
 alias pull='git pull'
-alias co='git co'
+alias co='git checkout'
+alias st='git stat'
 alias push='git push'
 
 alias cdd='cd ~/cvpr2011/pipeline/singleblock'
@@ -40,6 +43,14 @@ alias ccd='cd ~/cvpr2011paper/'
 # and end up with Super Cow Bullshit
 alias 'sear'='sudo aptitude search'
 alias 'inst'='sudo aptitude install'
+
+# Clean up bash history
+alias hist=history
+export HISTIGNORE="&:ls:[bf]g:exit:push:pull:st:co:df:du:sl"
+export HISTCONTROL=erasedups
+export HISTTIMEFORMAT='%F %T '
+shopt -s histappend
+PROMPT_COMMAND="${PROMPT_COMMAND}; history -a; history -n"
 
 # These are some fancy command prompts that Drew is experimenting with to make work a little easier.
 # This one I got from Dan Manjarres
