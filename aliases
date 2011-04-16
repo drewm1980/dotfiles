@@ -20,6 +20,7 @@ alias clmatlab="matlab -nodesktop -nojvm -nosplash"
 alias g="gvim --remote-silent"
 alias open=xdg-open
 alias ipython='ipython --colors LightBG'
+alias oct="octave -q"
 alias ll='ls -alh'
 alias df='df -h'
 alias du='du -hs'
