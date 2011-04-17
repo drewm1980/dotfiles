@@ -123,10 +123,11 @@ vmap <C-Down> ]egv
 nmap [d kdd
 nmap ]d jddk
 
-map <PageUp> <C-Y>
-map <PageDown> <C-E>
+map <PageUp> <C-y>
+map <PageDown> <C-e>
 
 abbr hte the
+abbr teh the
 abbr si is
 nmap <F5> :wall <cr> :make <cr>
 
