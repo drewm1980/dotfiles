@@ -47,7 +47,8 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/usr/local/lib
 export CUDA_ROOT=/usr/local/cuda
 
 export BIT_MODE=64
-export KMP_AFFINITY=granularity=fine,compact,1,0
+#export KMP_AFFINITY=granularity=fine,compact,1,0
+export OMP_NUM_THREADS=8;
 
 export ACML_BLAS_INCLUDE_DIR=/usr/local/amd/acml4.4.0/ifort64_mp/include/ 
 export MATLAB_BLAS_INCLUDE_DIR=${MATLAB}/extern/include

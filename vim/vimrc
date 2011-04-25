@@ -22,6 +22,9 @@ set listchars=tab:▸\ ,eol:¬
 nmap <leader>l :set list!<CR>
 nnoremap <leader>m :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
+" Better autocompletion when switching buffers
+set wildchar=<Tab> wildmenu wildmode=full
+
 " disable the command for entering Ex mode so I don't hit it accidentally
 map Q <ESC>
 
@@ -112,12 +115,19 @@ if has("gui_running")
 	nnoremap _ :SmallerFont<CR>
 endif
 
-" Bubble single lines, requires the unimpaired plugin
+" Bubble word to left or right
+nnoremap <silent> <C-h> "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
+nnoremap <silent> <C-l> "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
+" Bubble single line vertically, requires the unimpaired plugin
 nmap <C-Up> [e
 nmap <C-Down> ]e
-" Bubble multiple lines
+nmap <C-k> [e
+nmap <C-j> ]e
+" Bubble multiple lines vertically
 vmap <C-Up> [egv
 vmap <C-Down> ]egv
+vmap <C-k> [egv
+vmap <C-j> ]egv
 " Shortcuts for deleting lines above and below cursor.
 " Inspired by [<space> mappings for inserting empty lines.
 nmap [d kdd
@@ -130,4 +140,4 @@ abbr hte the
 abbr teh the
 abbr si is
 nmap <F5> :wall <cr> :make <cr>
-
+abbr inc #include

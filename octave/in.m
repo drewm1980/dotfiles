@@ -1,5 +1,10 @@
 function data = in(filename="", stride=1, type="float32")
-fd = fopen(filename);
+if ~exist(filename,"file"),
+	filename = [filename ".dump"];
+end
+[fd,errmsg] = fopen(filename);
+assert(fd!=-1,errmsg);
+
 data = fread(fd, Inf, type);
 fclose(fd);
 if mod(length(data),stride),
