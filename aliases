@@ -15,6 +15,9 @@ export PAGER=less
 setterm -blength 0
 export TERM=xterm-256color
 
+# Yay!!! vi keybindings!
+set -o vi
+
 alias more=less
 alias clmatlab="matlab -nodesktop -nojvm -nosplash"
 alias g="gvim --remote-silent"

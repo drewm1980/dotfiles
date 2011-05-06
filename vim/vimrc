@@ -23,7 +23,12 @@ nmap <leader>l :set list!<CR>
 nnoremap <leader>m :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
 
 " Better autocompletion when switching buffers
-set wildchar=<Tab> wildmenu wildmode=full
+set wildchar=<Tab> 
+set wildmenu 
+set wildmode=full
+set wildignore=*.o
+set suffixes-=.log
+set suffixes+=,,
 
 " disable the command for entering Ex mode so I don't hit it accidentally
 map Q <ESC>
