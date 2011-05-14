@@ -1,3 +1,6 @@
 ## Begin savepath auto-created section, do not edit
   addpath ('/home/awagner/dotfiles/octave/:/usr/local/share/octave/site-m', '-begin');
 ## End savepath auto-created section
+debug_on_error(1)
+debug_on_warning(1)
+

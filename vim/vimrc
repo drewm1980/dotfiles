@@ -150,3 +150,8 @@ abbr inc #include
 let NERDTreeIgnore=['\.vim$', '\~$', '\.o$', '\.dump$']
 nmap <leader>n :NERDTreeToggle<CR>
 let NERDTreeMinimalUI=1
+
+command! Cd cd %:h
+command! Lc lcd %:h
+command! CD cd %:h
+command! LC lcd %:h
