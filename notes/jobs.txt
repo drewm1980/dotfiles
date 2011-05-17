@@ -1,0 +1,77 @@
+Academic Positions
+	kuleuven.be
+		esat/psi/visics - 2 professor, 7 Post-doc vision group 
+			Luc Van Eycken, 3D video compression standards
+			Tinne Tuytelaars, cognitive image understanding, video conferencing tools, speech, archives
+			Luc van Gool (see below), at least in an official capacity.
+	ulb.ac.be
+		iridia code  posted no jobs.
+		mlg posted no jobs.
+	vision.ee.ethz.ch - 3 profs, 20 Post-docs
+		BIWI
+			Luc van Gool, very widespread vision projects
+	ens/inria/cnrs/willow
+		Jean Ponce, Paris
+
+Multinational Corporations
+	Philips... several jobs in brugge; seems they develop their 3d TV's there
+	Toshiba... Irvine.  Sr. Engineer
+	Olympus... has some engineering stuff in Quebec
+	Sony... intern for people enrolled in PhD program, San Jose, good match of prereqs
+	Canon... Sr. Scientist openings look like good fit, CA-Irvine.  Visual search and data mining.
+	Samsung... lots of jobs in Austin, mostly in hardware
+		Headhunted for job in Irvine, sent CV.  SISA. Video Alogrithm Research Engineer.  Sr. Algorithm Engineer? Ph.D. in ECE required
+	Panasonic... firmware engineer positions in Peachtree GA.  Embedded automotive devices.
+	Apple?
+	Google?
+	ABB... Nothing in Belgium
+	Siemens... Nothing for me in Belgium
+	Xerox Research Centre Europe?
+Multinational Dead Ends
+	Nokia X nothing in Belgium
+	Microsoft X nothing techincal in Belgium
+		Research positions in Redmond or Cambridge?
+	Unisys... X nothing in Belgium
+	IBM.. X just sales jobs
+	Getronics, huge consultant?
+	Econocom... X nothing technical in Belgium
+	Fujifilm... X nothing in Belgium, or anywhere
+	Nikon... X nothing.
+	Kodak... X nothing right now.  printer firmware in San Diego
+	Leica... X postings only in german.
+	Pentax... X no openings
+	Sigma... X no openings
+	Honda... X all about cars
+
+Consultancies
+	Epic, Madison, WI, electronic medical records industry
+	
+
+Other
+	Point Grey
+		Software systems engineer, Richmond, Canada, only require Bachelors
+	Makani Power (Monoplane, on-board generation)
+		Most promising company to win commercializion race.
+		Uses cameras to measure flow visualization tufts!!!
+		Second idea: use small fisheye cameras on wing for:
+			Wing position and orientation measurements
+			Wing strain measurements
+			Bird collision avoidance during takeof and landing
+			Icing detection
+			Signs of wing dammage
+		
+	Joby Energy (Biplane, on-board generation)
+		Headquarters: Santa Cruz.  Posted jobs don't match me.  Seem open to resume.
+		Testing in Hawaii
+	Sky Windpower (stationary quadrotor generator, boo)
+	SkySails (kites pulling boats, based in Germany)
+		Jobs page in German
+	Ampyx Power (Plane, ground-based generation)
+		One Ph.D., about 6 masters + industry guys + one business guy.
+	Altaeros, Magenn (aerosats, a joke/hoax)
+	Statkraft
+		Biggest european renewable energy firm, No jobs for me
+	Willow Garage
+	Ponoko
+	Makerbot industries
+
