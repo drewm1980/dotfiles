@@ -1,0 +1,83 @@
+#!/bin/bash
+# This shell script for weighted sum of images came from Dan.
+
+tempf=$(tempfile)
+temp="${tempf}.bmp"
+
+(
+if [ $# -gt 1 ]
+then
+	echo 'img='$2' * single(imread("'"$1"'"));' >&2
+	echo 'img='$2' * single(imread("'"$1"'"));'
+	shift 2
+fi
+while [ $# -gt 1 ]
+do
+	echo 'img=img + '$2' * single(imread("'"$1"'"));' >&2
+	echo 'img=img + '$2' * single(imread("'"$1"'"));'
+	shift 2
+done
+echo 'imwrite(uint8(img), "'"$temp"'");' >&2
+echo 'imwrite(uint8(img), "'"$temp"'");'
+) | octave -q
+
+if [ -f display.pid ]
+then
+	kill $(cat display.pid) &> /dev/null
+	rm display.pid
+fi
+
+
+identify "$temp"
+display "$temp" &
+echo $! > display.pid
+(
+	sleep 1
+	rm "$tempf"
+	rm "$temp"
+) &
+
+
+
+
+
+
+
+
+
+
+
+
+
+#here lies a dead end
+exit 0
+tempf=$(tempfile)
+pos_temp="${tempf}_pos.tiff"
+neg_temp="${tempf}_neg.tiff"
+
+composite -blend 0x0 "$1" "$1" -depth 16 "$pos_temp"
+composite -blend 0x0 "$1" "$1" -depth 16 "$neg_temp"
+
+while [ $# -gt 1 ]
+do
+	percentage=$(echo $(echo $2|tr -- - _) 100 \* p | dc)
+	composite -blend 100x$percentage "$pos_temp" "$1" -depth 16 "$pos_temp"
+	shift 2
+done
+
+if [ -f display.pid ]
+then
+	kill $(cat display.pid)
+	rm display.pid
+fi
+
+
+identify "$pos_temp"
+(
+	display "$pos_temp" &
+	echo $! > display.pid
+	wait
+	rm "$tempf"
+	rm "$pos_temp"
+	rm "$neg_temp"
+) &
