@@ -16,3 +16,6 @@
 [submodule "vim/bundle/fugitive"]
 	path = vim/bundle/fugitive
 	url = http://github.com/tpope/vim-fugitive
+[submodule "vim/bundle/tabular"]
+	path = vim/bundle/tabular
+	url = http://github.com/godlygeek/tabular
