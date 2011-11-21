@@ -39,6 +39,7 @@ set shiftwidth=4
 set softtabstop=4
 
 "set nohlsearch        " highlight searches
+set hlsearch
 "set incsearch       " do incremental searching
 "set ignorecase      " ignore case when searching
 
@@ -144,6 +145,7 @@ map <PageDown> <C-e>
 abbr hte the
 abbr teh the
 abbr si is
+nmap <F3> :wall <cr> :make <cr>
 nmap <F5> :wall <cr> :make <cr>
 abbr inc #include
 

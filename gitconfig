@@ -17,3 +17,5 @@
     merge = master
 [mergetool]
 	keepBackup = false
+[blame]
+	date = relative
