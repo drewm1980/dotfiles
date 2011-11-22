@@ -15,6 +15,13 @@ if has("cscope")
 	" if you want the reverse search order.
 	set csto=0
 
+	" Drew customization: run a script "cscope.build" if it exists
+	" in order to update the list of files to be scanned, stored in
+	" cscope.files
+	if filereadable("./cscope.vim")
+		:!./cscope.build
+	endif
+	
 	" add any cscope database in current directory
 	if filereadable("cscope.out")
 		set nocscopeverbose
@@ -62,7 +69,7 @@ if has("cscope")
 		nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
 		nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
 		nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
-		nmap <C-Space>r :!cscope -b <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
+		nmap <C-Space>r :!cscope -Rb <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
 	else
 		nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
 		nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
@@ -72,7 +79,7 @@ if has("cscope")
 		nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
 		nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
 		nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
-		nmap <C-@>r :!cscope -b <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
+		nmap <C-@>r :!cscope -Rb <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
 	endif
 
 endif
