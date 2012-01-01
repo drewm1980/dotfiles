@@ -124,6 +124,8 @@ endif
 " Bubble word to left or right
 nnoremap <silent> <C-h> "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
 nnoremap <silent> <C-l> "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
+nnoremap <silent> <C-H> vaWdBPB
+nnoremap <silent> <C-L> vaWdWPB
 " Bubble single line vertically, requires the unimpaired plugin
 nmap <C-Up> [e
 nmap <C-Down> ]e
