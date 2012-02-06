@@ -33,10 +33,10 @@ set suffixes+=,,
 " disable the command for entering Ex mode so I don't hit it accidentally
 map Q <ESC>
 
-set tabstop=4       " numbers of spaces of tab character
-set shiftwidth=4
-"set expandtab      " tabs are converted to spaces, use only when required
-set softtabstop=4
+"set tabstop=4       " numbers of spaces of tab character
+"set shiftwidth=4
+""set expandtab      " tabs are converted to spaces, use only when required
+"set softtabstop=4
 
 "set nohlsearch        " highlight searches
 set hlsearch
