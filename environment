@@ -3,6 +3,8 @@
 # Modifications to the environment that are machine specific (and probably Drew specific as well).
 # For use on whatever machine is currently Drew's primary workstation.
 
+PATH=${PATH}:/sbin
+
 PATH=${PATH}:/usr/local/cuda/bin
 PATH=${PATH}:/usr/local/bin
 PATH=${PATH}:~/cvpr2011/bin
@@ -19,6 +21,8 @@ export GOROOT=/home/awagner/go
 export GOBIN=$GOROOT/bin
 export GOOS=linux
 export GOARCH=amd64
+
+export SVN_MERGE=meld
 
 #export INTEL_ROOT=/opt/intel/composerxe-2011.3.174
 #source $INTEL_ROOT/bin/compilervars.sh intel64
