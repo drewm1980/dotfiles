@@ -1,19 +1,9 @@
-!XTerm*faceName: Bitstream Vera Sans Mono
-!XTerm*faceSize: 11
-
-!UXTerm*faceName: Bitstream Vera Sans Mono
-!UXTerm*faceSize: 11
-
-!Rxvt*faceName: Bitstream Vera Sans Mono
-!Rxvt*faceSize: 11
-
-XTerm*faceName: Inconsolata
-XTerm*faceSize: 11
-XTerm*faceSize1: 9
-XTerm*faceSize2: 10
+XTerm*Background: white
+XTerm*Foreground: black
+XTerm*faceName: Mono
+XTerm*faceSize: 10
+XTerm*faceSize2: 11
+XTerm*faceSize1: 8
 XTerm*faceSize3: 11
-XTerm*faceSize4: 13
-XTerm*faceSize5: 14
-
-
-
+XTerm*faceSize5: 8
+XTerm*faceSize4: 9

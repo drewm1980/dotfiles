@@ -16,10 +16,12 @@ require("debian.menu")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init("/home/awagner/dotfiles/awesome/themes/zenburn/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "x-terminal-emulator"
+terminal = "xterm"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -33,10 +35,10 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.tile,
-	awful.layout.suit.floating,
-	awful.layout.suit.fair,
 	awful.layout.suit.fair.horizontal,
+	awful.layout.suit.floating,
+    --awful.layout.suit.tile,
+	--awful.layout.suit.fair,
     --awful.layout.suit.tile.left,
     --awful.layout.suit.tile.bottom,
     --awful.layout.suit.tile.top,
@@ -162,6 +164,7 @@ end
 
 --Try to fire up the networm manager applet so I can connect to a darn VPN...
 os.execute("nm-applet &")
+--os.execute("skype &")
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
