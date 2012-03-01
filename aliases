@@ -32,7 +32,11 @@ alias updatedb="sudo updatedb"
 #alias cscope="cscope *.cpp *.h *.cu /usr/local/include/opencv/*.h"
 alias par='parallel -j+0 --eta'
 
-alias make=makepp
+#alias make=makepp
+
+alias dirs='dirs -v'
+alias pu='pushd'
+alias po='popd'
 
 alias pull='git pull'
 alias co='git checkout'
@@ -103,3 +107,4 @@ PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
         #PROMPT_COMMAND='echo -ne "\033]0;Xterm('$TERMIMON'): ${USER}@${HOSTNAME}:${PWD}\007"'
 #fi
 #unset TERMIMON
+alias su='sudo su'

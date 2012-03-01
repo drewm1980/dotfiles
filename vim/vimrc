@@ -67,6 +67,7 @@ au FileType cpp,c,cu,asy set cindent
 au BufNewFile,BufRead Makeppfile* set ft=make
 au BufNewFile,BufRead *.asy set ft=asy
 au BufNewFile,BufRead *.cu set ft=cpp
+au BufNewFile,BufRead *.launch set ft=xml
 "au BufNewFile,BufRead *.cu set ft=cu
 "au BufNewFile,BufRead *.cumako set ft=cu
 
