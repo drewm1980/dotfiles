@@ -20,6 +20,8 @@ export GOBIN=$GOROOT/bin
 export GOOS=linux
 export GOARCH=amd64
 
+export SVN_MERGE=meld
+
 #export INTEL_ROOT=/opt/intel/composerxe-2011.3.174
 #source $INTEL_ROOT/bin/compilervars.sh intel64
 #export MKL_ROOT=$INTEL_ROOT/mkl/

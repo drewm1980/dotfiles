@@ -1,0 +1,5 @@
+#!/bin/bash
+
+if [ -f ~/dotfiles/environment_`hostname` ]; then
+	. ~/dotfiles/environment_`hostname`
+fi
