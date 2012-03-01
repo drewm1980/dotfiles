@@ -16,7 +16,9 @@ require("debian.menu")
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
 --beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/zenburn/theme.lua")
+beautiful.init("/home/awagner/dotfiles/awesome/themes/zenburn/theme.lua")
+--beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
@@ -33,13 +35,13 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-    awful.layout.suit.tile,
+	--awful.layout.suit.fair.horizontal,
+	awful.layout.suit.tile, -- right
+	awful.layout.suit.tile.top,
 	awful.layout.suit.floating,
-	awful.layout.suit.fair,
-	awful.layout.suit.fair.horizontal,
-    --awful.layout.suit.tile.left,
-    --awful.layout.suit.tile.bottom,
-    --awful.layout.suit.tile.top,
+	--awful.layout.suit.fair,
+	--awful.layout.suit.tile.left,
+	--awful.layout.suit.tile.bottom,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
@@ -47,6 +49,13 @@ layouts =
     --awful.layout.suit.magnifier
 }
 -- }}}
+
+--layouts[1].incnmaster(-1)
+--layouts[2].incnmaster(-1)
+--layouts[3].incnmaster(-1)
+--layouts[1].setnmaster(0)
+--layouts[2].setnmaster(0)
+--layouts[3].setnmaster(0)
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
@@ -162,6 +171,7 @@ end
 
 --Try to fire up the networm manager applet so I can connect to a darn VPN...
 os.execute("nm-applet &")
+--os.execute("skype &")
 
 -- {{{ Mouse bindings
 root.buttons(awful.util.table.join(
@@ -330,9 +340,11 @@ client.add_signal("manage", function (c, startup)
     end)
 
 if startup then
-layouts[1].setnmaster(0)
-layouts[1].setncol(1)
-awful.layout.set(1)
+	--layouts[1].setnmaster(0)
+	--layouts[1].setncol(1)
+    --awful.tag.incnmaster( 1)
+    --awful.tag.incnmaster( -1)
+	awful.layout.set(1)
 end
 
     if not startup then
