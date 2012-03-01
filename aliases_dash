@@ -1,0 +1,4 @@
+#/bin/bash
+
+alias cdd='cd /home/awagner/PLANEPOWER/TRUNK/orocos/components/main/LEDTracker'
+alias cdp='cd /home/awagner/PLANEPOWER/Conferences/CDC2012/MHE_polynomials'

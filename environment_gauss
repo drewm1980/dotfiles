@@ -32,6 +32,8 @@ export GOARCH=amd64
 export COMPILER=icc
 #export COMPILER=g++
 
+export CSCOPE_DB="~/src/cscope.out"
+
 #export MATLAB=/usr/local/bin/MATLAB_R2009a/
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MATLAB}/bin/glnxa64
 #export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${MATLAB}/sys/os/glnxa64

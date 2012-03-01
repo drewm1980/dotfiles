@@ -21,13 +21,15 @@ if has("cscope")
 	if filereadable("./cscope.vim")
 		:!./cscope.build
 	endif
-	
-	" add any cscope database in current directory
-	if filereadable("cscope.out")
-		set nocscopeverbose
-		cs add cscope.out  
-		set cscopeverbose  
+	if filereadable("~/src/cscope.out")
+		:!cs add ~src/cscope.out
 	endif
+	
+	" add any cscope databases we can find (Hacked by Drew)
+	set nocscopeverbose
+	cs add cscope.out  
+	cs add ~/src/cscope.out  
+	set cscopeverbose  
 
 	" use the quickfix window for cscope stuff
 	"set cscopequickfix=s-,c-,d-,i-,t-,e-
@@ -69,7 +71,7 @@ if has("cscope")
 		nmap <C-Space>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
 		nmap <C-Space>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
 		nmap <C-Space>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
-		nmap <C-Space>r :!cscope -Rb <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
+		nmap <C-Space>r :!cscope -Rb <CR><CR>:cs kill 0<CR>:cs add ~/src/cscope.out<CR>
 	else
 		nmap <C-@>s :scs find s <C-R>=expand("<cword>")<CR><CR>	
 		nmap <C-@>g :scs find g <C-R>=expand("<cword>")<CR><CR>	
@@ -79,7 +81,7 @@ if has("cscope")
 		nmap <C-@>f :scs find f <C-R>=expand("<cfile>")<CR><CR>	
 		nmap <C-@>i :scs find i ^<C-R>=expand("<cfile>")<CR>$<CR>	
 		nmap <C-@>d :scs find d <C-R>=expand("<cword>")<CR><CR>	
-		nmap <C-@>r :!cscope -Rb <CR><CR>:cs kill 0<CR>:cs add cscope.out<CR>
+		nmap <C-@>r :!cscope -Rb <CR><CR>:cs kill 0<CR>:cs add ~src/cscope.out<CR>
 	endif
 
 endif
