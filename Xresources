@@ -1,9 +1,8 @@
+! If you edit this, run:
+!   xrdb -merge ~/.Xresources
+! ...and open a new shell
+
 XTerm*Background: white
 XTerm*Foreground: black
 XTerm*faceName: Mono
-XTerm*faceSize: 10
-XTerm*faceSize2: 11
-XTerm*faceSize1: 8
-XTerm*faceSize3: 11
-XTerm*faceSize5: 8
-XTerm*faceSize4: 9
+XTerm*faceSize: 8

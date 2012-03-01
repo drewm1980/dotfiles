@@ -21,7 +21,7 @@ beautiful.init("/home/awagner/dotfiles/awesome/themes/zenburn/theme.lua")
 --beautiful.init("/usr/share/awesome/themes/sky/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
+terminal = "x-terminal-emulator"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -35,13 +35,13 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 layouts =
 {
-	awful.layout.suit.fair.horizontal,
+	--awful.layout.suit.fair.horizontal,
+	awful.layout.suit.tile, -- right
+	awful.layout.suit.tile.top,
 	awful.layout.suit.floating,
-    --awful.layout.suit.tile,
 	--awful.layout.suit.fair,
-    --awful.layout.suit.tile.left,
-    --awful.layout.suit.tile.bottom,
-    --awful.layout.suit.tile.top,
+	--awful.layout.suit.tile.left,
+	--awful.layout.suit.tile.bottom,
     --awful.layout.suit.spiral,
     --awful.layout.suit.spiral.dwindle,
     --awful.layout.suit.max,
@@ -49,6 +49,13 @@ layouts =
     --awful.layout.suit.magnifier
 }
 -- }}}
+
+--layouts[1].incnmaster(-1)
+--layouts[2].incnmaster(-1)
+--layouts[3].incnmaster(-1)
+--layouts[1].setnmaster(0)
+--layouts[2].setnmaster(0)
+--layouts[3].setnmaster(0)
 
 -- {{{ Tags
 -- Define a tag table which hold all screen tags.
@@ -333,9 +340,11 @@ client.add_signal("manage", function (c, startup)
     end)
 
 if startup then
-layouts[1].setnmaster(0)
-layouts[1].setncol(1)
-awful.layout.set(1)
+	--layouts[1].setnmaster(0)
+	--layouts[1].setncol(1)
+    --awful.tag.incnmaster( 1)
+    --awful.tag.incnmaster( -1)
+	awful.layout.set(1)
 end
 
     if not startup then
