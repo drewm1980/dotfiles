@@ -1,6 +1,6 @@
 [user]
-        name = Drew Wagner
-        email = drewm1980@gmail.com
+        name = Andrew Wagner
+        email = andrew.wagner@esat.kuleuven.be
 [color]
         diff = auto
         status = auto
@@ -13,9 +13,11 @@
 	co = checkout
 
 [branch "master"]
-    remote = origin
-    merge = master
+	remote = origin
+	merge = master
 [mergetool]
 	keepBackup = false
 [blame]
 	date = relative
+[push]
+	default = simple

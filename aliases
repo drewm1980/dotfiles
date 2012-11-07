@@ -38,12 +38,16 @@ alias po='popd'
 alias pull='git pull'
 alias co='git checkout'
 alias st='git stat'
+alias lo='git log --oneline --graph --decorate --all'
 alias push='git push'
 alias branch='git branch'
 alias bra='git branch'
 alias br='git branch'
 alias add='git add'
 alias log='git log'
+alias fe='git fetch'
+
+alias cdd='cd ~/planepower/'
 
 # I always screw up typing the apittued commands 
 # and end up with Super Cow Bullshit
@@ -101,10 +105,9 @@ alias hist=history
 export HISTIGNORE="&:ls:[bf]g:exit:push:pull:st:co:df:du:sl"
 export HISTCONTROL=erasedups
 export HISTTIMEFORMAT='%F %T '
-shopt -s histappend
+#shopt -s histappend
 PROMPT_COMMAND="${PROMPT_COMMAND}; history -a; history -n"
 
 if [ -f ~/dotfiles/aliases_`hostname` ]; then
 	. ~/dotfiles/aliases_`hostname`
 fi
-
