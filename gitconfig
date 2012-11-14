@@ -19,5 +19,6 @@
 	keepBackup = false
 [blame]
 	date = relative
-[push]
-	default = simple
+
+[core]
+	excludesfile = /home/awagner/dotfiles/gitignore_global
