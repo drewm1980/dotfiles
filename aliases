@@ -47,6 +47,9 @@ alias add='git add'
 alias log='git log'
 alias fe='git fetch'
 
+alias up='tup upd'
+alias upd='tup upd'
+
 alias cdd='cd ~/planepower/'
 
 # I always screw up typing the apittued commands 

@@ -1,16 +1,21 @@
 [user]
-        name = Andrew Wagner
-        email = andrew.wagner@esat.kuleuven.be
+	name = Andrew Wagner
+	email = andrew.wagner@esat.kuleuven.be
 [color]
-        diff = auto
-        status = auto
-        branch = auto
+	diff = auto
+	status = auto
+	branch = auto
+	interactive = auto
+	ui = true
+	pager = true
 [alias]
 	st = status
 	sta = status
 	stat = status
 	ci = commit
 	co = checkout
+	br = branch
+	fe = fetch
 
 [branch "master"]
 	remote = origin
