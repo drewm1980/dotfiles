@@ -31,6 +31,8 @@ alias sl='ls'
 alias updatedb="sudo updatedb"
 alias par='parallel -j+0 --eta'
 
+alias killtex='killall -9 latex'
+
 alias dirs='dirs -v'
 alias pu='pushd'
 alias po='popd'
@@ -49,6 +51,8 @@ alias fe='git fetch'
 
 alias up='tup upd'
 alias upd='tup upd'
+
+alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "time\ to\ empty|percentage"'
 
 alias cdd='cd ~/planepower/'
 
