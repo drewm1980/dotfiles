@@ -2,8 +2,8 @@ set nocompatible    " use vim defaults
 set backspace=2
 set vb
 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
+
 filetype plugin indent on
 
 set ls=2            " allways show status line
@@ -81,6 +81,7 @@ au FileType openscad set noexpandtab
 au BufNewFile,BufRead Makeppfile* set ft=make
 au BufNewFile,BufRead *.asy set ft=asy
 au BufNewFile,BufRead *.cu set ft=cpp
+au BufNewFile,BufRead *.launch set ft=xml
 "au BufNewFile,BufRead *.cu set ft=cu
 "au BufNewFile,BufRead *.cumako set ft=cu
 

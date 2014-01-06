@@ -1,19 +1,8 @@
-!XTerm*faceName: Bitstream Vera Sans Mono
-!XTerm*faceSize: 11
+! If you edit this, run:
+!   xrdb -merge ~/.Xresources
+! ...and open a new shell
 
-!UXTerm*faceName: Bitstream Vera Sans Mono
-!UXTerm*faceSize: 11
-
-!Rxvt*faceName: Bitstream Vera Sans Mono
-!Rxvt*faceSize: 11
-
-XTerm*faceName: Inconsolata
-XTerm*faceSize: 11
-XTerm*faceSize1: 9
-XTerm*faceSize2: 10
-XTerm*faceSize3: 11
-XTerm*faceSize4: 13
-XTerm*faceSize5: 14
-
-
-
+XTerm*Background: white
+XTerm*Foreground: black
+XTerm*faceName: Mono
+XTerm*faceSize: 9

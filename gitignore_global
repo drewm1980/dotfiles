@@ -1,0 +1,5 @@
+*.swp
+*.swo
+.tb_history
+orocos.log
+.makepp

@@ -6,7 +6,7 @@
 PATH=./:${PATH}
 export PATH
 export OSTYPE
-export BROWSER=google-chrome
+export BROWSER=iceweasel
 export EDITOR=vim
 export GIT_EDITOR=vim
 export VIEWER=view
@@ -15,11 +15,11 @@ export PAGER=less
 setterm -blength 0
 export TERM=xterm-256color
 
-# vi keybindings!
+# Boo!!! vi keybindings!
 #set -o vi
 
 alias more=less
-alias matlab="matlab -nodesktop -nosplash"
+alias clmatlab="matlab -nodesktop -nojvm -nosplash"
 alias g="gvim --remote-silent"
 alias open=xdg-open
 alias ipython='ipython --colors LightBG'
@@ -29,33 +29,25 @@ alias df='df -h'
 alias du='du -hs'
 alias sl='ls'
 alias updatedb="sudo updatedb"
+#alias cscope="cscope *.cpp *.h *.cu /usr/local/include/opencv/*.h"
 alias par='parallel -j+0 --eta'
 
 #alias make=makepp
-alias killtex='killall -9 latex'
-
-alias dirs='dirs -v'
-alias pu='pushd'
-alias po='popd'
 
 alias pull='git pull'
 alias co='git checkout'
 alias st='git stat'
-alias lo='git log --oneline --graph --decorate --all'
 alias push='git push'
 alias branch='git branch'
 alias bra='git branch'
 alias br='git branch'
 alias add='git add'
 alias log='git log'
-alias fe='git fetch'
 
-alias up='tup upd'
-alias upd='tup upd'
-
-alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "time\ to\ empty|percentage"'
-
-alias ssh='ssh -X'
+#alias cdd='cd ~/cvpr2011/pipeline/singleblock'
+#alias ccd='cd ~/thesis'
+alias cdd='cd /home/awagner/PLANEPOWER/TRUNK/orocos/components/main/LEDTracker'
+alias cdp='cd /home/awagner/PLANEPOWER/Conferences/CDC2012/MHE_polynomials'
 
 # I always screw up typing the apittued commands 
 # and end up with Super Cow Bullshit
@@ -91,7 +83,7 @@ case $TERM in
 esac
 PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
 
-# Dan's prompt that goes across the whole screen
+# Dan't prompt that goes across the whole screen
 #spaces=$(seq "-s " 1 1000|tr -d 0-9)
 #TERMIMON=`tty|cut -d/ -f"3 4"`
 ##PS1='$PWD\n\u@\h('$TERMIMON')->'
@@ -106,16 +98,11 @@ PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
 #fi
 #unset TERMIMON
 
-alias su='sudo su'
-
 # Clean up bash history
 alias hist=history
 export HISTIGNORE="&:ls:[bf]g:exit:push:pull:st:co:df:du:sl"
 export HISTCONTROL=erasedups
 export HISTTIMEFORMAT='%F %T '
-#shopt -s histappend
+shopt -s histappend
 PROMPT_COMMAND="${PROMPT_COMMAND}; history -a; history -n"
 
-if [ -f ~/dotfiles/aliases_`hostname` ]; then
-	. ~/dotfiles/aliases_`hostname`
-fi
