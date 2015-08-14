@@ -28,8 +28,12 @@ alias ll='ls -alh'
 alias df='df -h'
 alias du='du -hs'
 alias sl='ls'
+alias evn='env'
 alias updatedb="sudo updatedb"
 alias par='parallel -j+0 --eta'
+
+# catkin sounds too much like cargo
+alias cargo='catkin'
 
 #alias make=makepp
 alias killtex='killall -9 latex'
@@ -49,6 +53,9 @@ alias br='git branch'
 alias add='git add'
 alias log='git log'
 alias fe='git fetch'
+alias difftool='git difftool -d'
+alias gitk='gitk --all &disown'
+alias remote='git remote -v'
 
 alias up='tup upd'
 alias upd='tup upd'
@@ -109,12 +116,12 @@ PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
 alias su='sudo su'
 
 # Clean up bash history
-alias hist=history
-export HISTIGNORE="&:ls:[bf]g:exit:push:pull:st:co:df:du:sl"
-export HISTCONTROL=erasedups
-export HISTTIMEFORMAT='%F %T '
+#alias hist=history
+#export HISTIGNORE="&:ls:[bf]g:exit:push:pull:st:co:df:du:sl"
+#export HISTCONTROL=erasedups
+#export HISTTIMEFORMAT='%F %T '
 #shopt -s histappend
-PROMPT_COMMAND="${PROMPT_COMMAND}; history -a; history -n"
+#PROMPT_COMMAND="${PROMPT_COMMAND}; history -a; history -n"
 
 if [ -f ~/dotfiles/aliases_`hostname` ]; then
 	. ~/dotfiles/aliases_`hostname`

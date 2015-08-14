@@ -14,11 +14,11 @@ set title           " show title in console title bar
 set ttyfast         " smoother changes
 set nostartofline   " don't jump to first character when paging
 set hidden
-set scrolloff=5     " keep 3 lines when scrolling
+set scrolloff=15     " keep 3 lines when scrolling
 set diffopt=filler,vertical,iwhite
 
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
+"set listchars=tab:▸\ ,eol:¬
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 nnoremap <leader>m :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
@@ -34,9 +34,9 @@ set suffixes+=,,
 " disable the command for entering Ex mode so I don't hit it accidentally
 map Q <ESC>
 
-"set tabstop=4       " numbers of spaces of tab character
-"set shiftwidth=4
-""set expandtab      " tabs are converted to spaces, use only when required
+set tabstop=4       " numbers of spaces of tab character
+set shiftwidth=4
+set expandtab      " tabs are converted to spaces, use only when required
 "set softtabstop=4
 
 "set nohlsearch        " highlight searches
@@ -65,9 +65,9 @@ au FileType cpp,c,cu,asy set autoindent
 au FileType cpp,c,cu,asy set smartindent
 au FileType cpp,c,cu,asy set cindent
 
-au FileType python,py set shiftwidth=4
-au FileType python,py set tabstop=4
-au FileType python,py set noexpandtab
+au FileType python,py,cmake set shiftwidth=4
+au FileType python,py,cmake set tabstop=4
+au FileType python,py,cmake set noexpandtab
 
 au FileType openscad set shiftwidth=4
 au FileType openscad set tabstop=4
@@ -95,8 +95,23 @@ au WinEnter * set cursorline cursorcolumn
 au InsertEnter * set nocursorline nocursorcolumn
 au InsertLeave * set cursorline cursorcolumn
 
+map <leader>f :pyf ~/dotfiles/clang-format.py<cr>
+
+function! HighContrastToggle()
+    if g:zenburn_high_Contrast
+	let g:zenburn_high_Contrast=0
+    else
+	let g:zenburn_high_Contrast=1
+    endif
+    colorscheme zenburn
+endfunction
+
 if has("gui_running")
+
+	let g:zenburn_high_Contrast = 1
 	colorscheme zenburn
+	nnoremap <leader>h :call HighContrastToggle()<cr>
+
 	"set t_Co=256
 	set guioptions-=m " Turn off menubar
 	set guioptions-=T " Turn off toolbar
@@ -158,8 +173,10 @@ vmap <C-j> ]egv
 nmap [d kdd
 nmap ]d jddk
 
-map <PageUp> <C-y>
-map <PageDown> <C-e>
+" map <PageUp> <C-y>
+" map <PageDown> <C-e>
+map <pageup> 4<c-y>
+map <pagedown> 4<c-e>
 
 abbr hte the
 abbr teh the

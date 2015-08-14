@@ -1,6 +1,6 @@
 [user]
 	name = Andrew Wagner
-	email = andrew.wagner@esat.kuleuven.be
+	email = andrew.wagner@external.toyota-europe.com
 [color]
 	diff = auto
 	status = auto
@@ -22,8 +22,15 @@
 	merge = master
 [mergetool]
 	keepBackup = false
+[diff]
+	tool = meld
+	guitool = meld
+[difftool]
+	prompt = false
 [blame]
 	date = relative
 
 [core]
 	excludesfile = /home/awagner/dotfiles/gitignore_global
+[push]
+	default = simple

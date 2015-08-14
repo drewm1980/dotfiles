@@ -351,9 +351,11 @@ endif
 if exists("g:zenburn_high_Contrast") && g:zenburn_high_Contrast
     " use new darker background
     hi Normal          guifg=#dcdccc guibg=#1f1f1f
-    hi CursorLine      guibg=#121212 gui=bold
+    "hi CursorLine      guibg=#121212 gui=bold
+    hi CursorLine      guibg=#121212
     if exists("g:zenburn_unified_CursorColumn") && g:zenburn_unified_CursorColumn
-        hi CursorColumn    guibg=#121212 gui=bold
+        "hi CursorColumn    guibg=#121212 gui=bold
+        hi CursorColumn    guibg=#121212
     else
         hi CursorColumn    guibg=#2b2b2b
     endif
