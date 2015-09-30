@@ -3,3 +3,4 @@
 .tb_history
 orocos.log
 .makepp
+lldb-mi-log.txt
