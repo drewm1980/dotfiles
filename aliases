@@ -35,6 +35,9 @@ alias par='parallel -j+0 --eta'
 # catkin sounds too much like cargo
 alias cargo='catkin'
 
+alias ide='/usr/bin/qtcreator -noload Welcome &disown'
+alias markdown_viewer='pandoc $1 | lynx -stdin'
+
 #alias make=makepp
 alias killtex='killall -9 latex'
 
@@ -63,6 +66,7 @@ alias upd='tup upd'
 alias batt='upower -i /org/freedesktop/UPower/devices/battery_BAT0 | grep -E "time\ to\ empty|percentage"'
 
 alias ssh='ssh -X'
+alias sshv='ssh -vvv "$@"'
 
 # I always screw up typing the apittued commands 
 # and end up with Super Cow Bullshit

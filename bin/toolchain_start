@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+(
+cd ~/catkin_ws
+gvim `find . -name "*.cpp"`
+)

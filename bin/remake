@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+# This script is for building projects with catkin.
+# catkin_make is a pain and only works from your workspace root,
+# and also has non-sensible defaults RE dealing with changes to build.
+
+# Note, in hindsight I think rosmake may do most of this...
+
+ws=`git rev-parse --show-toplevel` 2> /dev/null
+#echo ws starts as $ws
+
+c () 
+{
+	rm -rf ./build ./devel
+	catkin_make --force-cmake
+}
+
+#if [ $ws ]; then echo ws true?; fi
+#if [ ! $ws ]; then echo ws false?; fi
+
+if [ $ws ] ; then
+	echo "we are probably in a git repo"
+	(
+	cd $ws/../..
+	c
+	)
+elif [ -L CMakeLists.txt ]; then
+	echo "CMakeLists is a symlink.  We are probably in the src directory of a catkin repo"
+	(
+	cd ..
+	c
+	)
+else
+	echo "Not sure where we are.  Try catkin_make blindly."
+	c
+fi
+
