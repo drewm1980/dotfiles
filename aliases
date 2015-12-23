@@ -73,34 +73,20 @@ alias sshv='ssh -vvv "$@"'
 alias 'sear'='sudo aptitude search'
 alias 'inst'='sudo aptitude install'
 
-# These are some fancy command prompts that Drew is experimenting with to make work a little easier.
-# This one I got from Dan Manjarres
-#TERMIMON=`tty|cut -d/ -f"3 4"`
-#case $TERM in
-#        *) PS1='$PWD\n\u@\h('$TERMIMON')->'
-#        ;;
-#esac
-# Check if the case statement is just cruft...
-#TERMIMON=`tty|cut -d/ -f"3 4"`
-#PS1='$PWD\n\u@\h->'
-#SEPERATOR='______________'
-#SEPERATOR='---------------'
-#SEPERATOR=#################'
-#SEPERATOR='~~~~~~~~~~~~~~~~~'
-#SEPERATOR='°º¤ø,¸¸,ø¤º°`°º¤ø,¸,ø¤°º¤ø,¸¸,ø¤º°`°º¤ø,¸'
-#SEPERATOR='████████████████████████████████████'
-#SEPERATOR='▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄'
-#SEPERATOR='▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀'
-#SEPERATOR='▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀▄▀'
-#SEPERATOR='║▌║█║▌║▌││║▌║█║▌│║▌║█║▌║▌││║▌║'
-#SEPERATOR='▄█▀ ▄█▄ ▀█▄ ██ █▀▀ ▄▄▄▄ ▀▀█'
-#SEPERATOR='▄▄█ ▄█▀ ▄█▄ ▀█▄ ██ █▄▄ ▄▄▄▄'
-SEPERATOR='█▀▀ ▄█▀ ▄█▄ ██ ▄▄▄▄ ▀█▄ ▀▀█'
-#SEPERATOR='█▄▄ ▄█▀ ▄█▄ ██ ▄▄▄▄ ▀█▄ ▄▄█'
+#SEPERATOR='█▀▀ ▄█▀ ▄█▄ ██ ▄▄▄▄ ▀█▄ ▀▀█'
+SEPERATOR1='▀█▀ █▀█ █▄█ █▀█ ▀█▀ █▀█'
+SEPARATOR2=' █  █▄█  █  █▄█  █  █▀█'
+#SEPERATOR1='█▀█  ▄▄▄ █▄▄ ▄▄▄ ▄  ▄ ▀  ▄▄ ▀ ▄▄▄ ▄▄ '
+#SEPERATOR2='█▀▀█ █▄█ █▄█ █▄█ ▀█▄▀ █ ▄█  █ █▄█ █ █'
+
 case $TERM in
-	*) PS1='$SEPERATOR\n\u@\h:$PWD\n$ '
+#	*) PS1='$SEPERATOR\n\u@\h:$PWD\n$ '
+
+	*) PS1='$SEPERATOR1\n$SEPARATOR2\n\u@\h:$PWD\n$ '
 esac
+
 PROMPT_COMMAND='echo -ne "\033]0;${PWD/$HOME/~}\007"'
+
 
 # Dan's prompt that goes across the whole screen
 #spaces=$(seq "-s " 1 1000|tr -d 0-9)
