@@ -76,10 +76,10 @@ alias 'sear'='sudo aptitude search'
 alias 'inst'='sudo aptitude install'
 
 #SEPERATOR='█▀▀ ▄█▀ ▄█▄ ██ ▄▄▄▄ ▀█▄ ▀▀█'
-SEPERATOR1='▀█▀ █▀█ █▄█ █▀█ ▀█▀ █▀█'
-SEPARATOR2=' █  █▄█  █  █▄█  █  █▀█'
-#SEPERATOR1='█▀█  ▄▄▄ █▄▄ ▄▄▄ ▄  ▄ ▀  ▄▄ ▀ ▄▄▄ ▄▄ '
-#SEPERATOR2='█▀▀█ █▄█ █▄█ █▄█ ▀█▄▀ █ ▄█  █ █▄█ █ █'
+#SEPERATOR1='▀█▀ █▀█ █▄█ █▀█ ▀█▀ █▀█'
+#SEPARATOR2=' █  █▄█  █  █▄█  █  █▀█'
+SEPERATOR1='█▀█  ▄▄▄ █▄▄ ▄▄▄ ▄  ▄ ▀  ▄▄ ▀ ▄▄▄ ▄▄ '
+SEPARATOR2='█▀▀█ █▄█ █▄█ █▄█ ▀█▄▀ █ ▄█  █ █▄█ █ █'
 
 case $TERM in
 #	*) PS1='$SEPERATOR\n\u@\h:$PWD\n$ '
