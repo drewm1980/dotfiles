@@ -73,6 +73,8 @@ au FileType openscad set shiftwidth=4
 au FileType openscad set tabstop=4
 au FileType openscad set noexpandtab
 
+au FileType m set mp=octave\ %
+
 "set tabstop=4       " numbers of spaces of tab character
 "set shiftwidth=4
 ""set expandtab      " tabs are converted to spaces, use only when required

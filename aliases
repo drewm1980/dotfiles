@@ -24,6 +24,7 @@ alias g="gvim --remote-silent"
 alias open=xdg-open
 alias ipython='ipython --colors LightBG'
 alias oct="octave -q"
+alias octave="octave -q --no-gui --norc"
 alias ll='ls -alh'
 alias df='df -h'
 alias du='du -hs'
@@ -31,6 +32,7 @@ alias sl='ls'
 alias evn='env'
 alias updatedb="sudo updatedb"
 alias par='parallel -j+0 --eta'
+alias tree='tree --filelimit 20'
 
 # catkin sounds too much like cargo
 alias cargo='catkin'
