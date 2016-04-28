@@ -10,3 +10,4 @@ ln -sf ~/dotfiles/i3            ~/.i3
 ln -sf ~/dotfiles/Xresources         ~/.Xresources
 ln -sf ~/dotfiles/octave/octaverc    ~/.octaverc
 ln -sf ~/dotfiles/tmux.conf          ~/.tmux.conf
+ln -sf ~/dotfiles/gdb/gdbinit ~/.gdbinit
