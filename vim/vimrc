@@ -61,13 +61,11 @@ au FileType helpfile set nonumber      " no line numbers when viewing help
 au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
 au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
 
+" C-like languages setup
 au FileType cpp,c,cu,asy set autoindent
 au FileType cpp,c,cu,asy set smartindent
 au FileType cpp,c,cu,asy set cindent
-
-au FileType python,py,cmake set shiftwidth=4
-au FileType python,py,cmake set tabstop=4
-au FileType python,py,cmake set noexpandtab
+map <leader>f :pyf ~/dotfiles/clang-format.py<cr>
 
 au FileType openscad set shiftwidth=4
 au FileType openscad set tabstop=4
@@ -80,14 +78,14 @@ au FileType m set mp=octave\ %
 ""set expandtab      " tabs are converted to spaces, use only when required
 "set softtabstop=4
 
+" Help vim recognize some filetypes
 au BufNewFile,BufRead Makeppfile* set ft=make
 au BufNewFile,BufRead *.asy set ft=asy
 au BufNewFile,BufRead *.cu set ft=cpp
 au BufNewFile,BufRead *.launch set ft=xml
 "au BufNewFile,BufRead *.cu set ft=cu
 "au BufNewFile,BufRead *.cumako set ft=cu
-
-au! BufRead,BufNewFile *.scad	 set filetype=openscad 
+au BufRead,BufNewFile *.scad set filetype=openscad 
 
 let loaded_matchparen = 1 " Turn off distracting temporary highlighting of matching parantheses.
 
@@ -97,7 +95,21 @@ au WinEnter * set cursorline cursorcolumn
 au InsertEnter * set nocursorline nocursorcolumn
 au InsertLeave * set cursorline cursorcolumn
 
-map <leader>f :pyf ~/dotfiles/clang-format.py<cr>
+" CMake setup
+au FileType cmake set shiftwidth=4
+au FileType cmake set tabstop=4
+au FileType cmake set noexpandtab
+
+" Python setup
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+au FileType python map <leader>f :call yapf#YAPF()<cr>
 
 function! HighContrastToggle()
     if g:zenburn_high_Contrast
