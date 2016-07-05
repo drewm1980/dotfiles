@@ -18,192 +18,197 @@ set scrolloff=15     " keep 3 lines when scrolling
 set diffopt=filler,vertical,iwhite
 
 " Use the same symbols as TextMate for tabstops and EOLs
-"set listchars=tab:▸\ ,eol:¬
+set listchars=tab:▸\ ,eol:¬
 " Shortcut to rapidly toggle `set list`
-nmap <leader>l :set list!<CR>
+nnoremap <leader>l :set list!<CR>
 nnoremap <leader>m :if &go=~#'m'<Bar>set go-=m<Bar>else<Bar>set go+=m<Bar>endif<CR>
+
+" Make it easier to edit and source this file.
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 
 " Better autocompletion when switching buffers
 set wildchar=<Tab> 
 set wildmenu 
 set wildmode=full
-set wildignore=*.o
+set wildignore+=*.o
+set wildignore+=*.so
+set wildignore+=*.npy
+set wildignore+=*.pyc
+set wildignore+=*.png
+set wildignore+=*.jpg
 set suffixes-=.log
-set suffixes+=,,
+set suffixes+=,, " Ignore binaries sitting next to a text file of the same name
 
 " disable the command for entering Ex mode so I don't hit it accidentally
-map Q <ESC>
+noremap Q <ESC>
 
-set tabstop=4       " numbers of spaces of tab character
-set shiftwidth=4
-set expandtab      " tabs are converted to spaces, use only when required
-"set softtabstop=4
-
-"set nohlsearch        " highlight searches
 set hlsearch
-"set incsearch       " do incremental searching
-"set ignorecase      " ignore case when searching
-
 set noautoindent
 set nosmartindent
 set nocindent  
-
-"set nobackup        " do not keep a backup file
-"set autowrite      " auto saves changes when quitting and swiching buffer
 set nosm             " show matching braces, somewhat annoying...
-"set nowrap         " don't wrap lines
-
 syntax on           " syntax highlighing
 
-"set autochdir
-
-au FileType helpfile set nonumber      " no line numbers when viewing help
-au FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
-au FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
-
-" C-like languages setup
-au FileType cpp,c,cu,asy set autoindent
-au FileType cpp,c,cu,asy set smartindent
-au FileType cpp,c,cu,asy set cindent
-map <leader>f :pyf ~/dotfiles/clang-format.py<cr>
-
-au FileType openscad set shiftwidth=4
-au FileType openscad set tabstop=4
-au FileType openscad set noexpandtab
-
-au FileType m set mp=octave\ %
-
-"set tabstop=4       " numbers of spaces of tab character
-"set shiftwidth=4
-""set expandtab      " tabs are converted to spaces, use only when required
-"set softtabstop=4
-
 " Help vim recognize some filetypes
-au BufNewFile,BufRead Makeppfile* set ft=make
-au BufNewFile,BufRead *.asy set ft=asy
-au BufNewFile,BufRead *.cu set ft=cpp
-au BufNewFile,BufRead *.launch set ft=xml
-"au BufNewFile,BufRead *.cu set ft=cu
-"au BufNewFile,BufRead *.cumako set ft=cu
-au BufRead,BufNewFile *.scad set filetype=openscad 
+autocmd BufNewFile,BufRead Makeppfile* set filetype=make
+autocmd BufNewFile,BufRead *.asy set filetype=asy
+autocmd BufNewFile,BufRead *.cu set filetype=cpp
+autocmd BufNewFile,BufRead *.launch set filetype=xml
+"autocmd BufNewFile,BufRead *.cu set filetype=cu
+"autocmd BufNewFile,BufRead *.cumako set filetype=cu
+autocmd BufRead,BufNewFile *.scad set filetype=openscad 
 
 let loaded_matchparen = 1 " Turn off distracting temporary highlighting of matching parantheses.
 
+" Make my crosshairs follow the window
 set cursorline cursorcolumn
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-au InsertEnter * set nocursorline nocursorcolumn
-au InsertLeave * set cursorline cursorcolumn
+autocmd WinLeave * set nocursorline nocursorcolumn
+autocmd WinEnter * set cursorline cursorcolumn
+autocmd InsertEnter * set nocursorline nocursorcolumn
+autocmd InsertLeave * set cursorline cursorcolumn
 
-" CMake setup
-au FileType cmake set shiftwidth=4
-au FileType cmake set tabstop=4
-au FileType cmake set noexpandtab
+augroup filetype_help
+    autocmd!
+    autocmd FileType helpfile set nonumber      " no line numbers when viewing help
+    autocmd FileType helpfile nnoremap <buffer><cr> <c-]>   " Enter selects subject
+    autocmd FileType helpfile nnoremap <buffer><bs> <c-T>   " Backspace to go back
+augroup END
 
-" Python setup
-au BufNewFile,BufRead *.py
-    \ set tabstop=4
-    \ set softtabstop=4
-    \ set shiftwidth=4
-    \ set textwidth=79
-    \ set expandtab
-    \ set autoindent
-    \ set fileformat=unix
-au FileType python map <leader>f :call yapf#YAPF()<cr>
+augroup filetype_c
+    autocmd!
+    autocmd FileType cpp,c,cu,asy set autoindent
+    autocmd FileType cpp,c,cu,asy set smartindent
+    autocmd FileType cpp,c,cu,asy set cindent
+    autocmd FileType cpp,c noremap <buffer> <leader>f :pyf ~/dotfiles/clang-format.py<cr>
+augroup END
+
+augroup filetype_openscad
+    autocmd!
+    autocmd FileType openscad set shiftwidth=4
+    autocmd FileType openscad set tabstop=4
+    autocmd FileType openscad set noexpandtab
+augroup END
+
+augroup filetype_octave
+    autocmd!
+    autocmd FileType m set mp=octave\ %
+augroup END
+
+augroup filetype_cmake
+    autocmd!
+    autocmd FileType cmake set shiftwidth=4
+    autocmd FileType cmake set tabstop=4
+    autocmd FileType cmake set noexpandtab
+augroup END
+
+augroup filetype_python
+    autocmd!
+    autocmd FileType python set
+                \ tabstop=4 
+                \ softtabstop=4
+                \ shiftwidth=4
+                \ textwidth=79
+                \ expandtab
+                \ autoindent
+                \ fileformat=unix
+    autocmd FileType python noremap <buffer> <localleader>f :call yapf#YAPF()<cr>
+augroup END
 
 function! HighContrastToggle()
     if g:zenburn_high_Contrast
-	let g:zenburn_high_Contrast=0
+        let g:zenburn_high_Contrast=0
     else
-	let g:zenburn_high_Contrast=1
+        let g:zenburn_high_Contrast=1
     endif
     colorscheme zenburn
 endfunction
 
 if has("gui_running")
 
-	let g:zenburn_high_Contrast = 1
-	colorscheme zenburn
-	nnoremap <leader>h :call HighContrastToggle()<cr>
+    let g:zenburn_high_Contrast = 1
+    colorscheme zenburn
+    nnoremap <leader>h :call HighContrastToggle()<cr>
 
-	"set t_Co=256
-	set guioptions-=m " Turn off menubar
-	set guioptions-=T " Turn off toolbar
-	"set guioptions-=r " Turn off scroll-bars
-	set guicursor+=a:blinkon0 "Turn off cursor blink
-	set mousefocus
-	"set guifont=Monospace\ 10 "almost identical to...
-	set guifont=DejaVu\ Sans\ Mono\ 10
-	"set guifont=Liberation\ Mono\ 11
-	"set guifont=monofur\ 13 " Weird
-	"set guifont=Inconsolata\ Medium\ 10 " looks bad with antialiasing.
+    "set t_Co=256
+    set guioptions-=m " Turn off menubar
+    set guioptions-=T " Turn off toolbar
+    "set guioptions-=r " Turn off scroll-bars
+    set guicursor+=a:blinkon0 "Turn off cursor blink
+    set mousefocus
+    "set guifont=Monospace\ 10 "almost identical to...
+    set guifont=DejaVu\ Sans\ Mono\ 10
+    "set guifont=Liberation\ Mono\ 11
+    "set guifont=monofur\ 13 " Weird
+    "set guifont=Inconsolata\ Medium\ 10 " looks bad with antialiasing.
 
-	" Stuff for changing the font size quickly
-	let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
-	let s:minfontsize = 6
-	let s:maxfontsize = 16
-	function! AdjustFontSize(amount)
-		if has("gui_gtk2") && has("gui_running")
-			let fontname = substitute(&guifont, s:pattern, '\1', '')
-			let cursize = substitute(&guifont, s:pattern, '\2', '')
-			let newsize = cursize + a:amount
-			if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
-				let newfont = fontname . newsize
-				let &guifont = newfont
-			endif
-		else
-			echoerr "You need to run the GTK2 version of Vim to use this function."
-		endif
-	endfunction
-	function! LargerFont()
-		call AdjustFontSize(1)
-	endfunction
-	command! LargerFont call LargerFont()
-	function! SmallerFont()
-		call AdjustFontSize(-1)
-	endfunction
-	command! SmallerFont call SmallerFont()
-	nnoremap - :LargerFont<CR>
-	nnoremap _ :SmallerFont<CR>
+    " Stuff for changing the font size quickly
+    let s:pattern = '^\(.* \)\([1-9][0-9]*\)$'
+    let s:minfontsize = 6
+    let s:maxfontsize = 16
+    function! AdjustFontSize(amount)
+        if has("gui_gtk2") && has("gui_running")
+            let fontname = substitute(&guifont, s:pattern, '\1', '')
+            let cursize = substitute(&guifont, s:pattern, '\2', '')
+            let newsize = cursize + a:amount
+            if (newsize >= s:minfontsize) && (newsize <= s:maxfontsize)
+                let newfont = fontname . newsize
+                let &guifont = newfont
+            endif
+        else
+            echoerr "You need to run the GTK2 version of Vim to use this function."
+        endif
+    endfunction
+    function! LargerFont()
+        call AdjustFontSize(1)
+    endfunction
+    command! LargerFont call LargerFont()
+    function! SmallerFont()
+        call AdjustFontSize(-1)
+    endfunction
+    command! SmallerFont call SmallerFont()
+    nnoremap - :LargerFont<CR>
+    nnoremap _ :SmallerFont<CR>
 endif
 
 " Bubble word to left or right
-nnoremap <silent> <C-h> "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
-nnoremap <silent> <C-l> "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
-nnoremap <silent> <C-H> vaWdBPB
-nnoremap <silent> <C-L> vaWdWPB
+"nnoremap <silent> <C-h> "_yiw?\w\+\_W\+\%#<CR>:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o><c-l>
+"nnoremap <silent> <C-l> "_yiw:s/\(\%#\w\+\)\(\_W\+\)\(\w\+\)/\3\2\1/<CR><c-o>/\w\+\_W\+<CR><c-l>
+"nnoremap <silent> <C-H> vaWdBPB
+"nnoremap <silent> <C-L> vaWdWPB
 " Bubble single line vertically, requires the unimpaired plugin
 nmap <C-Up> [e
 nmap <C-Down> ]e
-nmap <C-k> [e
-nmap <C-j> ]e
+"nnoremap <C-k> [e
+"nnoremap <C-j> ]e
 " Bubble multiple lines vertically
-vmap <C-Up> [egv
-vmap <C-Down> ]egv
-vmap <C-k> [egv
-vmap <C-j> ]egv
+"vnoremap <C-Up> [egv
+"vnoremap <C-Down> ]egv
+"vnoremap <C-k> [egv
+"vnoremap <C-j> ]egv
 " Shortcuts for deleting lines above and below cursor.
 " Inspired by [<space> mappings for inserting empty lines.
-nmap [d kdd
-nmap ]d jddk
+nnoremap [d kdd
+nnoremap ]d jddk
 
-" map <PageUp> <C-y>
-" map <PageDown> <C-e>
-map <pageup> 4<c-y>
-map <pagedown> 4<c-e>
+" noremap <PageUp> <C-y>
+" noremap <PageDown> <C-e>
+noremap <pageup> 4<c-y>
+noremap <pagedown> 4<c-e>
 
 abbr hte the
 abbr teh the
 abbr si is
-nmap <F3> :wall <cr> :make <cr>
-nmap <F5> :wall <cr> :make <cr>
+
+nnoremap <F3> :wall <cr> :make <cr>
+nnoremap <F5> :wall <cr> :make <cr>
 "abbr inc #include
 
-let NERDTreeIgnore=['\.vim$', '\~$', '\.o$', '\.dump$']
-nmap <leader>n :NERDTreeToggle<CR>
-let NERDTreeMinimalUI=1
+"let NERDTreeIgnore=['\.vim$', '\~$', '\.o$', '\.dump$']
+"nnoremap <leader>n :NERDTreeToggle<CR>
+"let NERDTreeMinimalUI=1
 
-command! Cd cd %:h
-command! Lc lcd %:h
-command! CD cd %:h
-command! LC lcd %:h
+"command! Cd cd %:h
+"command! Lc lcd %:h
+"command! CD cd %:h
+"command! LC lcd %:h
